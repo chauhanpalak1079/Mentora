@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Set your Google Gemini API Key
-genai.configure(api_key="AIzaSyBcfVY6OI_pQdROE-CCgMb1hLgKXukWya0")  # Replace with your key
+genai.configure(api_key="api_key")  # Replace with your key
 
 @app.route("/chat", methods=["POST"])
 def chat():
