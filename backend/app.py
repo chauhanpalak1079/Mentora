@@ -9,11 +9,11 @@ CORS(app)
 
 # Configure Flask Session
 app.config["SESSION_TYPE"] = "filesystem"
-app.config["SECRET_KEY"] = "..."
+app.config["SECRET_KEY"] = "fucking_do_it_pr0prely"
 Session(app)
 
 # Set your Google Gemini API Key
-genai.configure(api_key="...")  # Replace with your key
+genai.configure(api_key="AIzaSyBcfVY6OI_pQdROE-CCgMb1hLgKXukWya0")  # Replace with your key
 
 
 # Initialize Database for Long-Term Memory
