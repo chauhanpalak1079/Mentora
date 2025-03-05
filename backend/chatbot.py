@@ -12,8 +12,8 @@ def chat():
     user_id = session.get("user_id")
     user_input = data.get("message", "").strip()
 
-    if not user_id:
-        return jsonify({"error": "Unauthorized"}), 401
+    #if not user_id:
+    #    return jsonify({"error": "Unauthorized"}), 401
 
     if not user_input:
         return jsonify({"response": "Please type a message."})
