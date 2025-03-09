@@ -1,6 +1,4 @@
-Here's a **README.md** file for your frontend folder:  
 
----
 
 # **Mentora Frontend**  
 
@@ -65,7 +63,3 @@ This will start the app on **`http://localhost:3000`**.
 - [ ] Enhance chatbot UI for better engagement.  
 - [ ] Improve animations & responsiveness for mobile users.  
 - [ ] Add a **dark mode toggle** for better accessibility.  
-
----
-
-Let me know if you need any modifications! 🚀
