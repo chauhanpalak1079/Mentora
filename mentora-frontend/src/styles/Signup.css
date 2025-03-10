@@ -1,0 +1,85 @@
+/* Overall styling for the Signup page */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f1f1f1; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://via.placeholder.com/1500'); /* Example background image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Form styling */
+  .signup-form {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with opacity */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 420px; /* Limiting form width */
+  }
+  
+  /* Header styling */
+  .signup-form h2 {
+    text-align: center;
+    color: #4CAF50; /* Green color for the heading */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Input field styling */
+  .signup-form input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+    box-sizing: border-box; /* To include padding in width calculation */
+  }
+  
+  .signup-form input:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    outline: none;
+  }
+  
+  /* Button styling */
+  .signup-form button {
+    width: 100%;
+    padding: 14px;
+    background-color: #4CAF50; /* Green background for button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box; /* To include padding in width calculation */
+  }
+  
+  .signup-form button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* Link for login page or additional links */
+  .signup-form .link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+  }
+  
+  .signup-form .link a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  
+  .signup-form .link a:hover {
+    text-decoration: underline;
+  }
+  
+  
