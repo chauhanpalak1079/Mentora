@@ -1,4 +1,6 @@
 import sqlite3
+from datetime import datetime, timedelta
+
 
 DATABASE_NAME = "mentora.db"
 
@@ -71,6 +73,49 @@ def store_chat_message(username, user_message, bot_response):
     
     conn.commit()
     conn.close()
+
+def get_last_7_days_chat(username):
+    conn = sqlite3.connect("mentora.db")
+    cursor = conn.cursor()
+
+    # Get timestamp for 7 days ago
+    seven_days_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")
+
+    # SQL query to fetch last 7 days of chat history
+    cursor.execute("""
+        SELECT user_message, bot_response, timestamp 
+        FROM chat_history 
+        WHERE username = ? AND timestamp >= ?
+        ORDER BY timestamp ASC;
+    """, (username, seven_days_ago))
+
+    chat_history = cursor.fetchall()  # Fetch data
+    conn.close()
+
+    return chat_history  # Returns list of (user_message, bot_response, timestamp)
+
+def get_user_password(username):
+    """Fetch the hashed password of a user from the database."""
+    conn = sqlite3.connect("mentora.db")  
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT password FROM users WHERE username = ?", (username,))
+    result = cursor.fetchone()
+
+    conn.close()
+
+    return result[0] if result else None  # Return password if found, else None
+
+
+def get_username_by_id(user_id):
+    conn = sqlite3.connect("mentora.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT username FROM users WHERE id = ?", (user_id,))
+    result = cursor.fetchone()
+
+    conn.close()
+    return result[0] if result else None
 
 
 # Run this script once to create tables
