@@ -4,7 +4,7 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "fucking_do_it_pr0prely")  # Change this in production
     SESSION_TYPE = "filesystem"  # Session storage type
     DATABASE_NAME = "mentora.db"  # SQLite database
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDdmxbXYewiD3pK2-rivGwyXD438cuUZWc")  # Gemini API key
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "enter ur api key here")  # Gemini API key
 
 class DevelopmentConfig(Config):
     DEBUG = True  # Enable debugging
