@@ -9,3 +9,5 @@ user = cursor.fetchall()
 
 print("🔍 User in DB:", user)
 conn.close()
+
+#this is only a test file, you can delete it
