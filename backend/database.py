@@ -130,7 +130,7 @@ def get_last_7_days_chat(username):
         ORDER BY timestamp ASC;
     """, (username, seven_days_ago))
 
-    chat_history = cursor.fetchall()  # Fetch data
+    chat_history = cursor.fetchall() 
     conn.close()
 
     return chat_history  # Returns list of (user_message, bot_response, timestamp)
