@@ -17,5 +17,5 @@ app.register_blueprint(sentiment_bp)
 
 
 if __name__ == "__main__":
-    create_tables()  # Ensure tables exist before running
+    create_tables() 
     app.run(debug=app.config["DEBUG"])
