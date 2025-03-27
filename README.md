@@ -1,1 +1,1 @@
-# Mentora
+# Mentora: Mental Health Chatbot
