@@ -1,4 +1,4 @@
-# Backend Python files
+# Backend Python files Overview
 
 The Mentora backend is responsible for handling user authentication, chatbot logic, sentiment analysis, and real-time emotion detection. It is built using Flask and interacts with an SQLite database (mentora.db) for storing user data, chat history, and sentiment reports.
 
