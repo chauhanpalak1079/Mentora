@@ -22,7 +22,7 @@ The `components/` folder contains all **React components** that power the user i
 🔹 Triggers **real-time emotion detection** in the background.  
 🔹 Emotion detection **runs in the backend** (no frontend preview).  
 
-### **4️⃣ `sentimentReport.js` - Sentiment Analysis Reports**  
+### **4️⃣ `sa.js` - Sentiment Analysis Reports**  
 🔹 Fetches and displays **weekly sentiment reports** from the backend.  
 🔹 Shows **charts and graphs** (e.g., mood trends, pie charts, line graphs).  
 🔹 Allows users to view **past sentiment reports**.  
