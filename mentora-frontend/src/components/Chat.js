@@ -5,12 +5,19 @@ import "../styles/Chat.css";
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
-  const [loading, setLoading] = useState(false); // New state to track Mentora's response
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const chatEndRef = useRef(null);
 
   useEffect(() => {
     fetchChatHistory();
+    // Start emotion detection when the component mounts
+    startEmotionDetection();
+
+    return () => {
+      // Stop emotion detection when the component unmounts
+      stopEmotionDetection();
+    };
   }, []);
 
   useEffect(() => {
@@ -58,7 +65,7 @@ const Chat = () => {
     const newMessage = { user_message: message, bot_response: null };
     setChatHistory([...chatHistory, newMessage]);
     setMessage("");
-    setLoading(true); // Show loading dots
+    setLoading(true);
 
     const response = await fetch("http://127.0.0.1:5000/chat", {
       method: "POST",
@@ -70,12 +77,61 @@ const Chat = () => {
     });
 
     const data = await response.json();
-    setLoading(false); // Hide loading dots
+    setLoading(false);
 
     if (response.ok) {
       setChatHistory([...chatHistory, { user_message: message, bot_response: data.response }]);
     } else {
       alert(data.error);
+    }
+  };
+
+  // Function to start emotion detection
+  const startEmotionDetection = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Unauthorized! Please log in.");
+      navigate("/login");
+      return;
+    }
+
+    // Make an API request to start emotion detection
+    const data = {};  // Ensure this is an object, even if empty
+    const response = await fetch("http://127.0.0.1:5000/start-camera", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data), // Ensure this is correctly formatted
+});
+
+    if (!response.ok) {
+      alert("response error");
+}
+  };
+
+  // Function to stop emotion detection
+  const stopEmotionDetection = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Unauthorized! Please log in.");
+      navigate("/login");
+      return;
+    }
+
+    // Make an API request to stop emotion detection
+    const response = await fetch("http://127.0.0.1:5000/stop-camera", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      alert("Failed to stop emotion detection.");
     }
   };
 
@@ -96,7 +152,7 @@ const Chat = () => {
         {loading && (
           <div className="chat-message">
             <p className="mentora-message typing-indicator">
-              <strong>Mentora:</strong> <span className="dots">...</span>
+              <strong></strong> <span className="dots"></span>
             </p>
           </div>
         )}
@@ -106,14 +162,16 @@ const Chat = () => {
 
       <form onSubmit={sendMessage} className="chat-form">
         <div className="input-container">
-          <input 
-            type="text" 
-            placeholder="Type a message..." 
-            value={message} 
-            onChange={(e) => setMessage(e.target.value)} 
-            required 
+          <input
+            type="text"
+            placeholder="Type a message..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
             className="chat-input"
           />
+
+          {/* Send Button */}
           <button type="submit" className="chat-button">Send</button>
         </div>
       </form>
