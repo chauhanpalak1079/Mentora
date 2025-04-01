@@ -36,6 +36,15 @@ The `styles/` folder in **Mentora's frontend** contains all the **CSS files** th
 - Ensures a **clean, card-based layout** for user details.  
 - Includes **profile picture, bio, and account settings styles**.  
 
+### ⚙️ `settings.css` - User Settings Page Styling  
+- Styles the **account settings page** where users can update their preferences.  
+- Provides a **clear and structured layout** for toggles, input fields, and buttons.  
+- Ensures a **responsive and user-friendly experience**.  
+
+### 📊 `sentiment_report.css` - Sentiment Analysis Report Styling  
+- Defines styles for the **sentiment report page**.  
+- Ensures a **clean and professional layout** for data visualization.  
+- Styles **charts, mood breakdowns, and insights sections**.  
 ---
 
 ## ⚡ How the `styles/` Folder Works  
