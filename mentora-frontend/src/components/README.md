@@ -27,11 +27,6 @@ The `components/` folder contains all **React components** that power the user i
 🔹 Shows **charts and graphs** (e.g., mood trends, pie charts, line graphs).  
 🔹 Allows users to view **past sentiment reports**.  
 
-### **5️⃣ `moodTracking.js` - Mood Tracking Page**  
-🔹 Lets users **log their daily mood** and **write journal entries**.  
-🔹 Displays **calendar view** for tracking past emotions.  
-🔹 Stores data in the backend for future analysis.  
-
 ---
 
 ## ⚡ **How the `components/` Folder Works**  
