@@ -37,6 +37,5 @@ This folder stores **project-related files**, configurations, or documentation t
 
 ---
 
-This folder serves as the **main directory** for Mentora, ensuring a **well-structured and scalable** project. 🚀  
 
-Let me know if you need any refinements! 😊  
+
