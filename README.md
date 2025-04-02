@@ -22,9 +22,6 @@ This folder contains the **React-based frontend**, responsible for the user inte
 - **Mood tracking page** for journaling emotions.  
 - **Profile & settings pages** for user customization.  
 
-### 📁 `Mentora/mentora.dn/` - Additional Files  
-This folder stores **project-related files**, configurations, or documentation that are not part of the core **frontend** or **backend**.
-
 ---
 
 ## ⚡ Key Features of Mentora  
