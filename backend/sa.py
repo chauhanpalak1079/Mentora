@@ -15,7 +15,7 @@ from sentimental_model import bert_sentiment_analysis  # Corrected function name
 sentiment_bp = Blueprint("sentiment", __name__)
 
 # Load Gemini API key
-SECRET_KEY = os.getenv("SECRET_KEY", "fucking_do_it_pr0prely") 
+SECRET_KEY = os.getenv("SECRET_KEY", "///") 
 genai.configure(api_key=Config.GEMINI_API_KEY)
 
 # JWT Authentication Decorator
