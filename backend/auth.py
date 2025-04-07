@@ -9,7 +9,7 @@ from flask import Flask, request, jsonify
 from database import get_db_connection, add_user  # Import database connection
 
 app = Flask(__name__)
-a="fucking_do_it_pr0prely"
+a="///"
 SECRET_KEY = a  # Use environment variables in production
 
 
