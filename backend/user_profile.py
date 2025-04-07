@@ -5,7 +5,7 @@ from functools import wraps
 import jwt
 
 profile_bp = Blueprint('profile', __name__)
-SECRET_KEY = os.getenv("SECRET_KEY", "fucking_do_it_pr0prely") 
+SECRET_KEY = os.getenv("SECRET_KEY", "///") 
 
 def token_required(f):
     @wraps(f)
