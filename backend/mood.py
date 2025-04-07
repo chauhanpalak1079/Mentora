@@ -6,7 +6,7 @@ from functools import wraps
 from database import get_username_by_id
 
 mood_bp = Blueprint("mood",__name__)
-SECRET_KEY = os.getenv("SECRET_KEY", "fucking_do_it_pr0prely")  # Replace with your actual key
+SECRET_KEY = os.getenv("SECRET_KEY", "///")  # Replace with your actual key
 
 def token_required(f):
     @wraps(f)
