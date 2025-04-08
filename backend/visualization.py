@@ -40,7 +40,7 @@ def generate_sentiment_plot(sentiment_data, username):
     plt.savefig(img_path, bbox_inches="tight")
     plt.close()
 
-    return img_path  # Return path to the saved image
+    return img_path  
 
 
 
