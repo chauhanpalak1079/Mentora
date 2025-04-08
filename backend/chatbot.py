@@ -47,8 +47,8 @@ emotion_scores = {
     "surprise": []
 }
 
-is_running = False  # Control flag for emotion detection
-capture_thread = None  # Thread for running camera
+is_running = False  
+capture_thread = None
 
 
 def detect_face(frame):
