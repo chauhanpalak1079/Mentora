@@ -52,7 +52,7 @@ Stores session-based emotion data in a separate SQLite database (emotion_data.db
 
 Provides various API routes for:
 
-✅ User authentication (/login, /register)
+✅ User authentication (/login)
 
 ✅ Chatbot interaction (/chat)
 
