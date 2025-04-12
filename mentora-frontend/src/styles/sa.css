@@ -1,0 +1,148 @@
+.sentiment-container {
+    width: 1300px;
+    margin: 0 auto;
+    padding: 80px;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    background-color: #EAF6F6;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.sentiment-description {
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sentiment-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.highlight {
+    background-color: #fffbe6;
+    border-left: 4px solid #F4A900;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Button Row (Generate + Loader) */
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Generate Button */
+.generate-button {
+    padding: 12px 25px;
+    background-color: #F4A900;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.generate-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.generate-button:hover:not(:disabled) {
+    background-color: #e29400;
+}
+
+/* Loading spinner (small for next to button) */
+.loading-circle-small {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #F4A900;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Report Display Container (your preferred version) */
+.report-container {
+    margin-top: 30px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sentiment Result (your preferred version) */
+.sentiment-result {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.sentiment-result h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.sentiment-result p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Gemini Report (your preferred version) */
+.gemini-report {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+/* Download Button */
+.download-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #227C70;
+}
+
+.download-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    margin-top: 15px;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

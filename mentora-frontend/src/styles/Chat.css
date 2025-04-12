@@ -1,0 +1,272 @@
+/* Background */
+.cloud-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-image: url('https://www.transparenttextures.com/patterns/cloudy-day.png');
+  background-size: cover;
+  opacity: 0.5;
+  animation: cloudMove 15s linear infinite;
+}
+
+/* Chat Container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+}
+
+/* Chat Box */
+.chat-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 85%;
+  max-width: 900px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  position: relative;
+}
+
+/* Chat Message */
+.chat-message {
+  display: flex;
+  color: black;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ✅ User Message (Aligned to the Right) */
+.user-message {
+  background-color: #c4ffc4;
+  align-self: flex-end;
+  text-align: left;
+  padding: 10px;
+  max-width: 60%;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 16px;
+}
+
+/* ✅ Mentora Message (Aligned to the Left) */
+.mentora-message {
+  background-color: #c4ffc4;
+  align-self: flex-start;
+  text-align: left;
+  padding: 10px;
+  max-width: 60%;
+  border-radius: 20px;
+  margin-left: 0;
+  font-size: 16px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.chat-form {
+  margin-top: -10px; 
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #2d6a4f;
+  border-radius: 25px;
+  padding: 5px 10px;
+  width: 350px;
+  margin: -15px; /* Center horizontally */
+}
+
+
+/* Chat Input */
+.chat-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+/* Send Button */
+.chat-button {
+  background-color: #006f3d;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  margin-left: 5px;
+}
+
+.chat-button:hover {
+  background-color: #1e4f36;
+  transform: scale(1.05);
+}
+
+.chat-button:active {
+  transform: scale(0.95);
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Loading Dots Animation */
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+.dots::after {
+  content: " .";
+  animation: blink 1.5s infinite steps(1);
+}
+.dots::after {
+  content: " ..";
+  animation: blink 1.5s infinite steps(2);
+}
+.dots::after {
+  content: " ...";
+  animation: blink 1.5s infinite steps(3);
+}
+/* 🌙 Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 60px;
+  right: 30px;
+  padding: 8px 14px;
+  background-color: #83df83;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #006f3d;
+  transform: scale(1.05);
+}
+
+.dark-mode-toggle:active {
+  transform: scale(0.95);
+}
+
+/* 🌒 Dark Mode Styles */
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode .chat-box {
+  background-color: #1e1e1e;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000000;
+}
+
+body.dark-mode .user-message {
+  background-color: #388e3c;
+  color: #ffffff;
+}
+
+body.dark-mode .mentora-message {
+  background-color: #388e3c;
+  color: #ffffff;
+}
+
+body.dark-mode .chat-input {
+  background-color: #fffefe;
+  color: #000000;
+}
+
+body.dark-mode .chat-button {
+  background-color: #388e3c;
+}
+
+body.dark-mode .chat-button:hover {
+  background-color: #2e7d32;
+}
+
+/* Overlay effect when menu is open */
+
+.overlay {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  z-index: 999;
+
+  display: none;
+
+}
+
+
+
+.overlay.active {
+
+  display: block;
+
+}
+
+.mic-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.mic-button.listening {
+  color: red;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}

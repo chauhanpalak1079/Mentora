@@ -1,0 +1,61 @@
+.contact-us-container {
+    max-width: 1000px;
+    margin: 80px auto 40px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .contact-us-container h2 {
+    font-size: 2rem;
+    color: #227C70;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contact-details {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+  }
+  
+  .contact-details span {
+    font-weight: bold;
+    color: #245c94;
+  }
+  
+  .social-links {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .social-links a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #0A66C2;
+    text-decoration: none;
+  }
+  
+  .faq-section {
+    margin-top: 30px;
+  }
+  
+  .faq-section h3 {
+    color: #227C70;
+    margin-bottom: 15px;
+  }
+  
+  .faq-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .faq-section li {
+    margin-bottom: 10px;
+    background: #f4f4f4;
+    padding: 12px 15px;
+    border-radius: 6px;
+  }
+  

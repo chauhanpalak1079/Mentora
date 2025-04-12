@@ -1,0 +1,190 @@
+/* MoodLog.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #EAF6F6;
+  scroll-behavior: smooth;
+}
+
+.mood-tracker-container {
+  width: 50vw;
+  max-width: 1200px;
+  margin: 90px auto 0 auto;
+  padding: 1rem;
+  background-color: #EAF6F6;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeSlideIn 0.8s ease-in-out;
+  transition: box-shadow 0.4s ease;
+}
+
+.mood-tracker-container:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #00695c;
+  font-size: 1.7rem;
+  font-weight: 700;
+  padding: 0.5rem 0.8rem;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInText 0.9s ease-in-out;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Success message */
+.message {
+  margin: 20px auto 1rem;
+  padding: 1rem 1.5rem;
+  max-width: 500px;
+  text-align: center;
+  font-weight: 600;
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: slideFadeIn 0.6s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form layout */
+.mood-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 2rem;
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  animation: fadeSlideIn 0.7s ease;
+  animation-fill-mode: both;
+  transition: all 0.3s ease;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+
+.form-group label {
+  font-weight: 700;
+  color: #181616;
+  margin-bottom: 0.5rem;
+}
+
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+  transform: scale(1.01);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* Submit button */
+.mood-form button {
+  width: 50%;
+  padding: 12px 24px;
+  align-self: center;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mood-form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Back button */
+.mood-tracker-container > button {
+  margin-top: 1rem;
+  padding: 10px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mood-tracker-container > button:hover {
+  background-color: #495057;
+  transform: scale(1.03);
+}

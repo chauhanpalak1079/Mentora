@@ -1,0 +1,286 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #EAF6F6;
+}
+
+/* Main Home Container */
+.home-container {
+  width: 100%;
+  margin-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #EAF6F6;
+}
+
+/* Welcome Section */
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: white;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: none;
+  min-height: 350px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Welcome Text */
+.welcome-container {
+  text-align: center;
+  width: 50%;
+}
+
+.welcome-container h1 {
+  font-size: 39px;
+  color: #227C70;
+}
+
+.welcome-container h3 {
+  font-size: 24px;
+  color: #245c94;
+}
+
+.quote {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.get-started-btn {
+  background-color: #F4A900;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.get-started-btn:hover {
+  background-color: #FFD750;
+}
+
+/* Robot Image */
+.robot-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.robot-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+/* Greeting + Mood Log Wrapper */
+.motion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* AI Greeting Container */
+.motion-container {
+  width: 40%;
+  background-color: #227C70;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.motion-container h2,
+.motion-container p {
+  color: white;
+}
+
+/* Mood Log Container */
+.mood-log-container {
+  width: 70%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mood-heading,
+.mood-description,
+.mood-question {
+  color: #000000;
+}
+
+.mood-heading {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.mood-description,
+.mood-question {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.mood-log-link {
+  display: inline-block;
+  background-color: #F4A900;
+  color: #fefefe;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: inherit;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.mood-log-link:hover {
+  background-color: #FFD750;
+  color: white;
+}
+
+/* Unique Features Section */
+.unique-container {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #EAF6F6;
+  box-sizing: border-box;
+}
+
+.unique-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #245c94;
+}
+
+.features-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-container {
+  flex: 1 1 calc(45% - 20px);
+  background: #F0F8FF;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  min-width: 300px;
+}
+
+.feature-container:hover {
+  transform: translateY(-5px);
+}
+
+.feature-container h3 {
+  font-size: 26px;
+  color: #2E8B57;
+}
+
+.feature-container p {
+  font-size: 20px;
+  color: #333;
+}
+
+.feature-container button {
+  background-color: #F4A900;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.feature-container button:hover {
+  background-color: #FFD750;
+}
+
+/* Sections with White Background */
+.choose-us, .how-mentora-helps, .mission {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  background: white;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.choose-us h2,
+.how-mentora-helps h2,
+.mission h2 {
+  font-size: 2rem;
+  color: #245c94;
+  margin-bottom: 15px;
+}
+
+.choose-us p,
+.how-mentora-helps p,
+.mission p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.reserved-rights {
+  width: 100%;
+  text-align: center;
+  padding: 14px 5px;
+  background-color: #227C70;
+  font-size: 18px;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcome-container, .robot-container,
+  .motion-container, .mood-log-container,
+  .feature-container {
+    width: 100%;
+  }
+
+  .features-row {
+    flex-direction: column;
+  }
+}

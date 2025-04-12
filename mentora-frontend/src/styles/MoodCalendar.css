@@ -1,0 +1,197 @@
+.mood-calendar-container {
+  max-width: 800px;
+  margin-top: 90px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+
+  /* Entry animation */
+  animation: fadeSlideIn 0.9s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover lift effect */
+.mood-calendar-container:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mood-calendar-container h2 {
+  font-size: 2.3rem;
+  color: #00695c;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  animation: fadeInText 1s ease-in;
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Calendar container */
+.react-calendar {
+  width: 100%;
+  max-width: 720px;
+  border: none;
+  border-radius: 14px;
+  background-color: #ffffff;
+  padding: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Calendar tile styles */
+.react-calendar__tile {
+  border-radius: 50%;
+  padding: 1.2rem 0.8rem;
+  height: 50px;
+  width: 50px;
+  margin: 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.react-calendar__tile:hover {
+  background-color: #b2ebf2;
+  color: #004d40;
+  transform: scale(1.05);
+}
+
+/* Today */
+.react-calendar__tile--now {
+  background: #e0f2f1;
+  font-weight: bold;
+  border-radius: 40%;
+  color: #00695c;
+}
+
+/* Selected day */
+.react-calendar__tile--active {
+  background-color: #00897b !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  font-weight: bold;
+}
+
+/* Navigation (month/year) */
+.react-calendar__navigation button {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #004d40;
+  background: none;
+  border: none;
+  padding: 10px 0;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Weekday headers */
+.react-calendar__month-view__weekdays {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Mood states */
+.logged-date,
+.missed-date {
+  border-radius: 50% !important;
+  border: 2px solid;
+  font-weight: bold;
+}
+
+.logged-date {
+  background-color: #81c784 !important;
+  color: #1b5e20 !important;
+  border-color: #66bb6a;
+}
+
+.missed-date {
+  background-color: #ffd54f !important;
+  color: #f57f17 !important;
+  border-color: #ffca28;
+}
+
+/* Mood legend */
+.mood-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 1.5rem;
+}
+
+.mood-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.mood-legend-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.mood-positive {
+  background-color: #81c784;
+  border-color: #66bb6a;
+}
+
+.mood-neutral {
+  background-color: #ffd54f;
+  border-color: #ffca28;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mood-calendar-container {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .react-calendar__tile {
+    width: 40px;
+    height: 40px;
+    font-size: 0.85rem;
+  }
+
+  .mood-legend {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
