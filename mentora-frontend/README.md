@@ -2,7 +2,7 @@
 
 # **Mentora Frontend**  
 
-This is the **frontend** for **Mentora**, an AI-powered chatbot that provides **sentiment analysis** and **weekly reports** based on user conversations. Built using **React.js**.  
+This is the **frontend** for **Mentora**, an AI-powered chatbot that provides **sentiment analysis** and **weekly reports with visualizations** based on user conversations. Built using **React.js**.  
 
 ---
 
