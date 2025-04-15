@@ -1,6 +1,6 @@
 # 🌟 Mentora
 
-The **Mentora** folder contains the complete codebase for the **Mentora project**, including both the **frontend** and **backend**. It is structured to ensure a **clear separation of concerns**, making development and maintenance efficient.  
+The **Mentora** folder contains the complete codebase for the **Mentora project**, including both the **frontend** and **backend**. It is structured to ensure a **clear separation of concerns**, making development and maintenance efficient. 
 
 ---
 
