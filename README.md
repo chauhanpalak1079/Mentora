@@ -20,7 +20,7 @@ This folder contains the **React-based frontend**, responsible for the user inte
 - **Chatbot UI** for user interaction.  
 - **Sentiment report page** to visualize mood trends.  
 - **Mood tracking page** for journaling emotions.  
-- **Profile & settings pages** for user customization.  
+- **Profile & settings pages** for user customization. 
 
 ---
 
