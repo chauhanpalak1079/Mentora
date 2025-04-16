@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import datetime, timedelta
+from collections import Counter
 import bcrypt
 
 DATABASE_NAME = "mentora.db"
@@ -18,16 +19,18 @@ def create_tables():
 
     conn = sqlite3.connect(DATABASE_NAME)
     cursor = conn.cursor()
-    cursor.execute("""
+    cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
-            first_name TEXT NOT NULL,
-            last_name TEXT NOT NULL,
-            dob TEXT NOT NULL,
+            first_name TEXT,
+            last_name TEXT,
+            email TEXT,
+            dob TEXT,
+            gender TEXT,
             password TEXT NOT NULL
         )
-    """)
+    ''')
     
 
     # Chat History Table
@@ -53,16 +56,20 @@ def create_tables():
         )
     ''')
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS mood_logs (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
-            date_logged TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            mood TEXT NOT NULL,
-            influence TEXT NOT NULL,
-            improve_action TEXT NOT NULL,
-            note TEXT
-        )
-    ''')
+CREATE TABLE IF NOT EXISTS mood_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    date DATE NOT NULL,
+    mood TEXT NOT NULL,
+    influence TEXT NOT NULL,
+    sleep_quality TEXT NOT NULL,
+    food_intake TEXT NOT NULL,
+    coping_mechanism TEXT NOT NULL,
+    improvement_goal TEXT NOT NULL,
+    note TEXT,
+    UNIQUE(username, date)
+)
+''')
 
     conn.commit()
     conn.close()
@@ -71,7 +78,7 @@ def get_user_profile(username):
     conn = sqlite3.connect('mentora.db')
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT username, first_name, last_name, dob 
+        SELECT username, first_name, last_name,email, gender, dob 
         FROM users WHERE username=?
     """, (username,))
     row = cursor.fetchone()
@@ -81,20 +88,22 @@ def get_user_profile(username):
             'username': row[0],
             'first_name': row[1],
             'last_name': row[2],
-            'dob': row[3]
+            'email' : row[3],
+            'gender' : row[4],
+            'dob': row[5]
         }
     return None
 
 
-def add_user(username, first_name, last_name, dob, password):
+def add_user(username, first_name, last_name, email, dob, gender,  password):
     conn = sqlite3.connect(DATABASE_NAME)
     cursor = conn.cursor()
     
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
     try:
-        cursor.execute("INSERT INTO users (username, first_name, last_name, dob, password) VALUES (?, ?, ?, ?, ?)", 
-                       (username, first_name, last_name, dob, hashed_password))
+        cursor.execute("INSERT INTO users (username, first_name, last_name, email, dob, gender,  password) VALUES (?, ?, ?, ? , ? ,?, ?)", 
+                       (username, first_name, last_name, email, dob, gender, hashed_password))
         conn.commit()
         return True
     except sqlite3.IntegrityError:
@@ -262,6 +271,89 @@ def get_last_7_days_sentiments(username):
 
     return sentiments
 
+def get_sleep_quality_data(username):
+    conn = sqlite3.connect("mentora.db")
+    cursor = conn.cursor()
+
+    query = """
+    SELECT date, sleep_quality
+    FROM mood_logs
+    WHERE username = ?
+    ORDER BY date DESC
+    LIMIT 7;
+    """
+
+    cursor.execute(query, (username,))
+    data = cursor.fetchall()
+    conn.close()
+
+    # Reverse to maintain chronological order (oldest first)
+    sleep_data = {row[0]: row[1] for row in reversed(data) if row[1] is not None}
+
+    return sleep_data
+
+def get_last_7_mood_entries(username):
+    conn = sqlite3.connect("mentora.db")
+    cursor = conn.cursor()
+
+    query = """
+    SELECT date, mood 
+    FROM mood_logs 
+    WHERE username = ? 
+    ORDER BY date DESC 
+    LIMIT 7;
+    """
+    cursor.execute(query, (username,))
+    results = cursor.fetchall()
+    conn.close()
+
+    # returns list of tuples like: [('2025-04-07', 'Happy'), ...]
+    return results
+
+import sqlite3
+from datetime import datetime
+
+def get_logged_dates_for_month(username):
+    conn = sqlite3.connect("mentora.db")
+    cursor = conn.cursor()
+
+    # Get the current year and month
+    now = datetime.now()
+    year_month = now.strftime('%Y-%m')
+
+    query = """
+    SELECT date 
+    FROM mood_logs 
+    WHERE username = ? AND strftime('%Y-%m', date) = ?
+    """
+    cursor.execute(query, (username, year_month))
+    rows = cursor.fetchall()
+    conn.close()
+
+    # Return list of logged dates like ['2025-04-01', '2025-04-02']
+    return [row[0] for row in rows]
+
+def get_coping_mechanism_data(username):
+    conn = sqlite3.connect("mentora.db")
+    cursor = conn.cursor()
+
+    query = """
+    SELECT coping_mechanism
+    FROM mood_logs
+    WHERE username = ?
+    AND date >= date('now', '-30 days')
+    """
+    cursor.execute(query, (username,))
+    rows = cursor.fetchall()
+    conn.close()
+
+    mechanisms = []
+    for (entry,) in rows:
+        if entry:
+            mechanisms.extend([m.strip().capitalize() for m in entry.split(',')])
+    return mechanisms
+
+
 def get_emotion_db_connection():
     conn = sqlite3.connect("emotion_data.db")  # Use absolute path
     conn.row_factory = sqlite3.Row
@@ -312,5 +404,3 @@ if __name__ == "__main__":
     create_tables()
     create_emotion_table()
     print("Database tables created successfully.")
-
-
